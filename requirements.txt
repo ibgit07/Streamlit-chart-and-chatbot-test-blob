@@ -1,0 +1,14 @@
+streamlit
+pyngrok
+plotly
+openai
+langchain
+faiss-cpu
+langchain_community
+openai
+langchain-openai
+fastapi
+uvicorn
+langdetect
+gunicorn
+deep_translator

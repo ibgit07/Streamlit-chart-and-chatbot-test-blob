@@ -1,0 +1,711 @@
+/* app.css */
+button[kind="headerNoPadding"] {
+    display: none !important;
+}
+[data-testid="stBaseButton-headerNoPadding"] {
+    display: none !important;
+}
+
+/* Make the main container responsive */
+.main .block-container {
+    padding: 1rem 1rem 10rem;
+    max-width: 100%;
+}
+
+/* Responsive column adjustments */
+@media screen and (max-width: 1024px) {
+    .main .block-container {
+        padding: 0.5rem 0.5rem 8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main .block-container {
+        padding: 0.25rem 0.25rem 6rem;
+    }
+}
+
+/* Ensure Streamlit columns stack properly on small screens */
+@media screen and (max-width: 640px) {
+    div[data-testid="column"] {
+        width: 100% !important;
+        flex: 1 1 100% !important;
+        min-width: 0 !important;
+    }
+}
+
+/* Unified background color scheme */
+/* Main app background */
+.main > div, .main, [data-testid="stAppViewContainer"], 
+[data-testid="stAppViewContainer"] > div,
+.stApp, .stApp > div {
+    background-color: #f0f2f6 !important;
+}
+
+/* Sidebar background */
+.css-1d391kg, .css-1lcbmhc, .css-17eq0hr, [data-testid="stSidebar"] > div, [data-testid="stSidebar"] {
+    background-color: #f0f2f6 !important;
+}
+
+/* Main content area background */
+.block-container, [data-testid="block-container"] {
+    background-color: #f0f2f6 !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Column containers - default gray */
+[data-testid="column"], .css-ocqkz7 {
+    background-color: #f0f2f6 !important;
+}
+
+/* Make the first column (charts) white */
+div[data-testid="column"]:first-child {
+    background-color: white !important;
+}
+
+/* NUCLEAR option for first column - override everything */
+div[data-testid="column"]:first-child,
+div[data-testid="column"]:first-child *:not(.js-plotly-plot):not(.plotly):not(.plotly-graph-div) {
+    background-color: white !important;
+}
+
+/* Overall app container */
+.css-fg4pbf, .css-1ekf893, .css-k1vhr4 {
+    background-color: #f0f2f6 !important;
+}
+
+/* Metric containers */
+[data-testid="metric-container"] {
+    background-color: white !important;
+    padding: 1rem !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+/* Chart containers - keep white for better readability */
+.js-plotly-plot, .plotly, .plotly-graph-div {
+    background-color: white !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+/* Widget backgrounds to match sidebar */
+.stSelectbox > div > div, 
+.stTextInput > div > div, 
+.stTextArea > div,
+.stNumberInput > div > div {
+    background-color: #ffffff !important;
+    border-radius: 4px !important;
+}
+
+.stTextArea > div
+{
+    min-height: auto !important;
+    position: fixed;
+    bottom: 15px;
+    width: 390px;
+}
+
+.stFormSubmitButton 
+{   
+    width: 50px;
+    position: fixed;
+    right: 70px;
+    bottom: 15px;
+    color: black !important;
+    border-radius: 150px !important;
+    font-size: 20px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+    
+}
+
+
+/* Header styling to match theme */
+h1, h2, h3, h4, h5, h6 {
+    color: #262730 !important;
+}
+
+/* Title and header container backgrounds */
+[data-testid="stHeader"],
+.stTitle,
+.stTitle > div,
+.element-container:has(h1),
+.element-container:has(h2),
+.element-container:has(h3) {
+    background-color: #f0f2f6 !important;
+}
+
+/* Main content area headers - AGGRESSIVE margin/padding removal */
+div[data-testid="column"]:first-child h1,
+div[data-testid="column"]:first-child h2,
+div[data-testid="column"]:first-child h3 {
+    background-color: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* AGGRESSIVE spacing removal for title elements */
+.element-container:has(h1),
+.element-container:has(h2),
+.element-container:has(h3) {
+    margin: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Remove ALL spacing in main column */
+div[data-testid="column"]:first-child .element-container {
+    margin: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Target the first element container specifically */
+div[data-testid="column"]:first-child .element-container:first-child,
+div[data-testid="column"]:first-child .element-container:first-child h1 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Remove block container padding at the top */
+div[data-testid="column"]:first-child [data-testid="block-container"] {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Expander background */
+.streamlit-expanderHeader {
+    background-color: white !important;
+    border-radius: 4px !important;
+}
+
+.streamlit-expanderContent {
+    background-color: #f0f2f6 !important;
+}
+
+/* AGGRESSIVE Override for chatbot column background */
+div[data-testid="column"]:last-child {
+    background-color: #f0f2f6 !important;
+}
+
+/* More specific chatbot area background - target all nested elements */
+div[data-testid="column"]:last-child .element-container,
+div[data-testid="column"]:last-child .element-container > div,
+div[data-testid="column"]:last-child .stMarkdown,
+div[data-testid="column"]:last-child .stMarkdown > div,
+div[data-testid="column"]:last-child [data-testid="stVerticalBlock"],
+div[data-testid="column"]:last-child [data-testid="stVerticalBlock"] > div {
+    background-color: #f0f2f6 !important;
+}
+
+/* Target the entire right column area more aggressively */
+div[data-testid="column"]:nth-child(2),
+div[data-testid="column"]:nth-child(2) * {
+    background-color: #f0f2f6 !important;
+}
+
+/* Override any white backgrounds in the chatbot column */
+div[data-testid="column"]:last-child div:not(.chat-message) {
+    background-color: #f0f2f6 !important;
+}
+
+/* Nuclear option - override ALL white backgrounds in the app except specific elements */
+.main div:not(.js-plotly-plot):not(.plotly):not(.plotly-graph-div):not([data-testid="metric-container"]):not(.stSelectbox):not(.stTextInput):not(.stTextArea):not(.stNumberInput):not(.streamlit-expanderHeader):not(.chat-bubble) {
+    background-color: #f0f2f6 !important;
+}
+
+/* Ensure the entire page background is consistent */
+body, html, #root, .stApp {
+    background-color: #f0f2f6 !important;
+}
+
+/* Additional header and title area targeting - default gray */
+[data-testid="stMarkdownContainer"],
+[data-testid="stMarkdownContainer"] > div,
+.markdown-text-container,
+.stMarkdown,
+.stMarkdown > div {
+    background-color: #f0f2f6 !important;
+}
+
+/* Override markdown containers in first column to be white */
+div[data-testid="column"]:first-child [data-testid="stMarkdownContainer"],
+div[data-testid="column"]:first-child [data-testid="stMarkdownContainer"] > div,
+div[data-testid="column"]:first-child .markdown-text-container,
+div[data-testid="column"]:first-child .stMarkdown,
+div[data-testid="column"]:first-child .stMarkdown > div {
+    background-color: white !important;
+}
+
+/* Make all containers in the first column (charts column) white */
+div[data-testid="column"]:first-child > div,
+div[data-testid="column"]:first-child .element-container,
+div[data-testid="column"]:first-child .element-container > div,
+div[data-testid="column"]:first-child .stMarkdown,
+div[data-testid="column"]:first-child .stMarkdown > div,
+div[data-testid="column"]:first-child [data-testid="stVerticalBlock"],
+div[data-testid="column"]:first-child [data-testid="stVerticalBlock"] > div {
+    background-color: white !important;
+}
+
+/* FINAL OVERRIDE - Force first column to be white with highest specificity */
+.main div[data-testid="column"]:first-child {
+    background-color: white !important;
+}
+
+.main div[data-testid="column"]:first-child div {
+    background-color: white !important;
+}
+
+/* Keep only charts with specific background */
+.main div[data-testid="column"]:first-child .js-plotly-plot,
+.main div[data-testid="column"]:first-child .plotly,
+.main div[data-testid="column"]:first-child .plotly-graph-div {
+    background-color: white !important;
+}
+
+/* CHATBOT INPUT STYLING */
+.input-wrapper {
+    position: relative;
+    margin-top: 10px;
+    background: #f0f2f6 !important;
+    padding: 12px !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Form columns alignment */
+.input-wrapper [data-testid="column"] {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+}
+
+/* Text area column */
+.input-wrapper .stForm [data-testid="column"]:first-child {
+    flex: 1 !important;
+    padding-right: 10px !important;
+}
+
+
+
+/* Remove spacing from text area container */
+.input-wrapper .stTextArea {
+    margin-bottom: 0 !important;
+}
+
+/* Force remove all borders with high specificity */
+div.input-wrapper * {
+    border: none !important;
+    outline: none !important;
+}
+
+div.input-wrapper *:not(.stTextArea textarea) {
+    box-shadow: none !important;
+}
+
+/* AGGRESSIVE BORDER REMOVAL - Override ALL Streamlit form borders */
+.input-wrapper form,
+.input-wrapper form *,
+.input-wrapper [role="form"],
+.input-wrapper [role="form"] *,
+.element-container form,
+.element-container form *,
+.stForm,
+.stForm *,
+[data-testid*="stForm"],
+[data-testid*="stForm"] *,
+.stFormSubmitButton,
+.stFormSubmitButton *,
+.stTextArea,
+.stTextArea * {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Remove border from form container specifically */
+.input-wrapper > form {
+    border: 0px solid transparent !important;
+    box-shadow: 0 0 0 0 transparent !important;
+}
+
+/* NUCLEAR OPTION - Remove ALL possible borders with maximum specificity */
+div.input-wrapper form[data-testid] {
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Target the specific form element that might be causing the border */
+.input-wrapper [data-testid="stForm"][data-baseweb] {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Remove any possible container borders */
+.input-wrapper .element-container {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Text area container for horizontal layout */
+.input-wrapper .stTextArea,
+.input-wrapper .stTextArea > div,
+.input-wrapper .stTextArea > div > div {
+    flex: 1 !important;
+    margin: 0 !important;
+    width: auto !important;
+    display: block !important;
+}
+
+/* IMPROVED TEXTAREA SIZING FOR BETTER PLACEHOLDER VISIBILITY */
+.stTextArea textarea {
+    width: 100% !important;
+    padding-right: 12px !important;
+    min-height: 55px !important;
+    max-height: 120px !important;
+    font-size: clamp(14px, 2.8vw, 16px) !important;
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+    line-height: 1.5 !important;
+    background: white !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+    resize: vertical !important;
+    padding-left: 14px !important;
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+    transition: height 0.2s ease !important;
+}
+
+/* Enhanced placeholder styling */
+.stTextArea textarea::placeholder {
+    color: #6b7280 !important;
+    opacity: 1 !important;
+    font-size: clamp(13px, 2.5vw, 15px) !important;
+    line-height: 1.4 !important;
+    font-weight: 400 !important;
+}
+
+/* Focus state improvements */
+.stTextArea textarea:focus {
+    border-color: #1E90FF !important;
+    box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.1) !important;
+    outline: none !important;
+}
+
+/* Remove borders from Streamlit form elements */
+.input-wrapper .stForm {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.input-wrapper .stForm > div {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* More specific border removal for form containers */
+.input-wrapper [data-testid="stForm"] {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.input-wrapper [data-testid="stForm"] > div {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* Remove borders from text area containers */
+.input-wrapper .stTextArea {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.input-wrapper .stTextArea > div {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.input-wrapper .stTextArea > div > div {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+
+
+
+
+
+
+/* CHAT AREA STYLING */
+/* Responsive chat-area */
+.chat-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: clamp(8px, 2vw, 15px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f0f2f6;
+    border-radius: 12px;
+    height: min(500px, 60vh);
+    max-height: 75vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fixed chat container so chat and input don't scroll with the page */
+.chat-area {
+    position: fixed;
+    right: 24px;
+    bottom: 96px;           
+    width: 360px;
+    max-height: min(60vh, 500px);
+    overflow-y: auto;
+    z-index: 9999;
+    background: transparent; /* keep existing bubble styling */
+}
+
+/* Responsive Chat messages */
+.chat-message {
+    display: flex;
+    max-width: min(90%, 400px);
+    word-wrap: break-word;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* User message */
+.chat-message.user {
+    justify-content: flex-end;
+}
+
+.chat-message.user .chat-bubble {
+    background-color: #1E90FF;
+    color: white;
+    border-radius: 20px 20px 0 20px;
+    padding: clamp(8px, 2vw, 16px) clamp(10px, 3vw, 16px);
+    font-size: clamp(12px, 2.5vw, 14px);
+    line-height: 1.4;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 100%;
+    word-break: break-word;
+}
+
+/* Assistant message */
+.chat-message.assistant {
+    justify-content: flex-start;
+}
+
+.chat-message.assistant .chat-bubble {
+    background-color: white;
+    color: #333;
+    border: 1px solid #d1d5db;
+    border-radius: 20px 20px 20px 0;
+    padding: clamp(8px, 2vw, 16px) clamp(10px, 3vw, 16px);
+    font-size: clamp(12px, 2.5vw, 14px);
+    line-height: 1.4;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 100%;
+    word-break: break-word;
+}
+
+/* Smooth scroll */
+.chat-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-area::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+/* RESPONSIVE DESIGN FOR DIFFERENT SCREEN SIZES */
+@media screen and (max-width: 1200px) {
+    .chat-area {
+        height: min(400px, 50vh);
+        max-height: 60vh;
+    }
+    .input-wrapper {
+        padding: 8px 8px 40px 8px !important;
+    }
+    .stTextArea textarea {
+        font-size: 14px !important;
+        min-height: 50px !important;
+        padding-right: 50px !important;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .chat-message {
+        max-width: 95%;
+    }
+    .chat-message.user .chat-bubble,
+    .chat-message.assistant .chat-bubble {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    .chat-area {
+        height: min(350px, 45vh);
+        max-height: 55vh;
+        padding: 8px;
+    }
+    .stTextArea textarea {
+        min-height: 48px !important;
+        font-size: 13px !important;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .stTextArea textarea {
+        font-size: 14px !important;
+        min-height: 45px !important;
+        max-height: 100px !important;
+        padding: 12px !important;
+    }
+
+    .chat-area {
+        height: min(300px, 40vh);
+        max-height: 50vh;
+    }
+    /* Ensure placeholder text is visible on mobile */
+    .stTextArea textarea::placeholder {
+        font-size: 13px !important;
+        color: #555 !important;
+    }
+}
+
+/* Additional mobile optimization for very small screens */
+@media screen and (max-width: 400px) {
+    .stTextArea textarea {
+        min-height: 50px !important;
+        padding: 14px 12px !important;
+        font-size: 14px !important;
+    }
+    .stTextArea textarea::placeholder {
+        font-size: 12px !important;
+        line-height: 1.3 !important;
+    }
+}
+
+/* Fixed input wrapper */
+.input-wrapper {
+    position: fixed;
+    right: 24px;
+    bottom: 20px;
+    width: 360px;
+    z-index: 10000;
+}
+
+
+/* Responsive for narrow screens (mobile) */
+@media (max-width: 600px) {
+    .chat-area,
+    .input-wrapper {
+        left: 12px;
+        right: 12px;
+        width: auto;
+    }
+    .chat-area { bottom: 104px; } /* adjust to fit larger mobile input */
+}
+
+
+.fixed-chat-col {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    height: 100vh;
+    z-index: 9999;
+    background: #f0f2f6;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -2px 0 16px rgba(0,0,0,0.08);
+}
+
+.sticky-chatbot {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #f0f2f6;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+.chatbot-header {
+    background-color: #f0f2f6;
+    padding: 24px 24px 12px 24px;
+    border-radius: 0;
+    flex: 0 0 auto;
+}
+
+.chatbot-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 24px 0 24px;
+}
+
+.chat-area {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 12px 0 0 0;
+    max-height: none;
+    background: transparent;
+}
+
+.input-wrapper {
+    flex: 0 0 auto;
+    padding: 12px 0 18px 0;
+    background: transparent;
+    border-top: 1px solid #eee;
+}
+
+@media (max-width: 700px) {
+    .fixed-chat-col {
+        width: 100vw;
+        left: 0;
+        right: 0;
+        box-shadow: none;
+    }
+    .chatbot-body {
+        padding: 0 8px 0 8px;
+    }
+}
+
+#fixed-chatbot {
+    position: fixed;
+    top: 30px; /* adjust as needed */
+    right: 30px; /* adjust as needed */
+    width: 600px; /* adjust width as needed */
+    z-index: 9999;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+
