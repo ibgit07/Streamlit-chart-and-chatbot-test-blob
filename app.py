@@ -17,8 +17,8 @@ import math
 import html
 
 
-from dotenv import load_dotenv
-load_dotenv()
+#from dotenv import load_dotenv
+#load_dotenv()
 
 from blob_reader import get_latest_csv_df
 
