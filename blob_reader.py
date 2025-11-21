@@ -26,7 +26,6 @@ def get_latest_csv_df(connection_string, container_name, folder_path):
 
     # Pick the newest CSV file
     newest_blob = csv_blobs[0]
-    print(f"Latest CSV File: {newest_blob.name}")
 
     # Download CSV content
     blob_client = container_client.get_blob_client(newest_blob.name)
@@ -34,5 +33,4 @@ def get_latest_csv_df(connection_string, container_name, folder_path):
 
     # Convert to DataFrame
     df = pd.read_csv(StringIO(csv_text))
-    print("file Downloaded and converted to DataFrame")
     return df

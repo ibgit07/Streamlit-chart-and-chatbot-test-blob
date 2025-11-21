@@ -1,6 +1,13 @@
 import plotly.graph_objects as go
 import pandas as pd
 import streamlit as st
+
+st.set_page_config(
+    page_title="Material Price Prediction and ChatBot",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 import os
 from openai import OpenAI
 from langdetect import detect
@@ -9,23 +16,6 @@ import datetime
 import math
 import html
 
-st.set_page_config(
-    page_title="Material Price Prediction and ChatBot",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-# lock sidebar expanded
-st.markdown(
-    """
-    <style>
-        [data-testid="collapsedControl"] {
-            display: none !important;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -35,8 +25,6 @@ from blob_reader import get_latest_csv_df
 from utils import load_css, load_js, inject_script
 # setting page layout
 
-print("Page Config Set")
-print(f"{st.session_state.get('initial_sidebar_state')}")
 
 # Load external CSS and JavaScript files
 load_css('app.css')
@@ -45,8 +33,6 @@ load_js('app.js')
 # Initialize mobile detection
 inject_script('mobile_detection')
 
-col1, col2 = st.columns([2.8, 1.2]) 
-
 
 connection_string = os.getenv("AZURE_CONNECTION_STRING")
 container_name = os.getenv("AZURE_CONTAINER_NAME")
@@ -54,8 +40,6 @@ folder_path = os.getenv("AZURE_FOLDER_PATH")
 
 # Call the function
 df = get_latest_csv_df(connection_string,container_name,folder_path)
-
-print(df.head())
 
 df['Date'] = pd.to_datetime(df['Date'], format="%Y-%m-%d", errors="coerce")
 
@@ -68,7 +52,6 @@ df.rename(
     },
     inplace=True
 )
-print(df.head())
 
 # ------ Filter the Data
 df = df.sort_values(by="Date") #sorting so that plot is consitent
@@ -89,12 +72,8 @@ other_factors_df['Date'] = other_factors_df['Date'].dt.strftime("%Y-%m-%d")
 other_factors_df = other_factors_df.drop_duplicates(subset=["Date"], keep="last")
 # ------ End of the Data Filter
 
-
-# ----- Charts in 2/3rd part from left --------- #
-with col1:
-    with st.sidebar:
+with st.sidebar:
         st.sidebar.header("Filters")
-        print(f"initial_sidebar_state: {st.session_state.get('initial_sidebar_state')}")
         # 1. Category Filter
         Category_options = filtered_df["Category"].unique().tolist()
         selected_category = st.selectbox("Select category:", Category_options)
@@ -120,6 +99,9 @@ with col1:
         # Y-axis range multiplier for the main chart (constant value, no UI)
         y_range_multiplier = 5.0
 
+col1, col2 = st.columns([2, 1]) 
+# ----- Charts in 2/3rd part from left --------- #
+with col1:
     # Filter Data Based on User Selections
     filtered_df = filtered_df[(filtered_df["Material"] == selected_material) & (filtered_df["Date"].dt.year == selected_year)]
 
